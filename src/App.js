@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import { useSelector } from "react-redux";
 import { GlobalStyle } from "./GlobalStyle";
-import { ThemeSwitch } from "./common/ThemeSwitch/ThemeSwitch";
+import { PersonalHomepage } from "./features/personalHomepage/index";
 import { selectIsDark } from "./common/ThemeSwitch/themeSlice";
 import { lightTheme, darkTheme } from "./theme/themes";
 
@@ -11,7 +11,7 @@ function App() {
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <GlobalStyle />
-      <ThemeSwitch />
+      <PersonalHomepage />
     </ThemeProvider>
   );
 }
