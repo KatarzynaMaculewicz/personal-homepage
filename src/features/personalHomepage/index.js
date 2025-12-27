@@ -1,9 +1,12 @@
 import { ThemeSwitch } from "../../common/ThemeSwitch/ThemeSwitch";
-import { Continer } from "./styled";
-
+import { AboutPerson } from "./AboutPerson";
+import { Portfolio } from "./Portfolio";
+import { Container } from "./styled";
 
 export const PersonalHomepage = () => (
-  <Continer>
+  <Container>
     <ThemeSwitch />
-  </Continer>
+    <AboutPerson />
+    <Portfolio />
+  </Container>
 );
