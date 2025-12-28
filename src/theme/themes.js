@@ -7,6 +7,7 @@ export const colors = {
   mineShaft: "#252525",
   black: "#000000",
 
+  anakiwa: "#8CC2FF",
   dodgerBlue: "#2188FF",
   scienceBlue: "#0366D6",
 
@@ -49,6 +50,15 @@ export const lightTheme = {
   tileBorder: colors.transparentGray,
   tileBorderHover: colors.scienceBlueTransparent33,
   link: colors.scienceBlue,
+
+  button: {
+    text: colors.white,
+    background: colors.scienceBlue,
+    backgroundHover: colors.dodgerBlue,
+    borderColor: colors.transparentGray,
+    hoverShadow: "-2px -2px 0px 0px #8CC2FF, 2px 2px 0px 0px #8CC2FF, -2px 2px 0px 0px #8CC2FF, 2px -2px 0px 0px #8CC2FF",
+    activeShadow: "0px 2px 0px 0px #14462033 inset",
+  }
 };
 
 export const darkTheme = {
@@ -67,4 +77,13 @@ export const darkTheme = {
   tileBorderHover: colors.scienceBlueTransparent80,
   link: colors.dodgerBlue,
   tileShadow: shadows.tileShadow,
+
+  button: {
+    text: colors.white,
+    background: colors.dodgerBlue,
+    backgroundHover: colors.dodgerBlue,
+    borderColor: colors.transparentGray,
+    hoverShadow: "-2px -2px 0px 0px #6D93BE, 2px 2px 0px 0px #6D93BE, -2px 2px 0px 0px #6D93BE, 2px -2px 0px 0px #6D93BE",
+    activeShadow: "0px 2px 0px 0px #14462033 inset",
+  }
 };

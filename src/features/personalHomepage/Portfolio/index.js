@@ -6,16 +6,50 @@ import {
   RecentProjects,
   ProjectsGrid,
 } from "./styled";
+import { Loader } from "./Loader";
+import { Error } from "./Error";
 import { ProjectGridItem } from "./ProjectGridItem";
+
+const LOADER_DELAY = 800;
 
 export const Portfolio = () => {
   const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
+    const startTime = Date.now();
+
     fetch("https://api.github.com/users/KatarzynaMaculewicz/repos?per_page=100")
-      .then((res) => res.json())
-      .then(setRepos)
-      .catch(console.error);
+      .then((res) => {
+        if (!res.ok) throw new Error();
+        return res.json();
+      })
+      .then((data) => {
+        if (isMounted) {
+          setRepos(data);
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setError(true);
+        }
+      })
+      .finally(() => {
+        const elapsed = Date.now() - startTime;
+        const remainingTime = Math.max(LOADER_DELAY - elapsed, 0);
+
+        setTimeout(() => {
+          if (isMounted) {
+            setLoading(false);
+          }
+        }, remainingTime);
+      });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const collaborations = [
@@ -47,11 +81,15 @@ export const Portfolio = () => {
       <GitHubIcon />
       <PortfolioHeader>Portfolio</PortfolioHeader>
       <RecentProjects>My recent projects</RecentProjects>
-      <ProjectsGrid>
-        {sortedProjects.map((repo, idx) => (
-          <ProjectGridItem key={repo.id || idx} repo={repo} />
-        ))}
-      </ProjectsGrid>
+      {loading && <Loader />}
+      {error && !loading && <Error />}
+      {!loading && !error && (
+        <ProjectsGrid>
+          {sortedProjects.map((repo) => (
+            <ProjectGridItem key={repo.id} repo={repo} />
+          ))}
+        </ProjectsGrid>
+      )}
     </PortfolioWrapper>
   );
 };
