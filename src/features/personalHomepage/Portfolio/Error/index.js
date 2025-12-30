@@ -1,4 +1,5 @@
-import { DangerIcon, ErrorHeader, ErrorMessage, GitButton } from "./styled";
+import { StyledButton } from "../../../../common/Button/styled";
+import { DangerIcon, ErrorHeader, ErrorMessage } from "./styled";
 
 export const Error = () => (
   <>
@@ -9,8 +10,8 @@ export const Error = () => (
       <br /> 
       You can check them directly on Github.
     </ErrorMessage>
-    <GitButton href="https://github.com/KatarzynaMaculewicz">
+    <StyledButton href="https://github.com/KatarzynaMaculewicz">
       Go to Github
-    </GitButton>
+    </StyledButton>
   </>
 );
