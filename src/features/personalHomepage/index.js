@@ -2,12 +2,14 @@ import { ThemeSwitch } from "../../common/ThemeSwitch/ThemeSwitch";
 import { AboutPerson } from "./AboutPerson";
 import { Portfolio } from "./Portfolio";
 import { Footer } from "./Footer";
-import { Container } from "./styled";
+import { Container, Wrpper } from "./styled";
 
 export const PersonalHomepage = () => (
   <Container>
     <ThemeSwitch />
-    <AboutPerson />
+    <Wrpper>
+      <AboutPerson />
+    </Wrpper>
     <Portfolio />
     <Footer />
   </Container>

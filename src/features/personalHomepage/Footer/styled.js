@@ -3,6 +3,12 @@ import { ReactComponent as SocialIcon } from "../../../images/mark-github.svg";
 
 export const FooterWrapper = styled.div`
   padding: 0 20px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const LetsTalk = styled.p`
@@ -42,7 +48,7 @@ export const FooterDescription = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 14px;
-    width: 288px;
+    width: 100%;
   }
 `;
 
