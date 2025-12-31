@@ -5,9 +5,10 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-export const Wrpper = styled.div`
+export const Wrapper = styled.div`
   padding: 0 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   gap: 27px;
