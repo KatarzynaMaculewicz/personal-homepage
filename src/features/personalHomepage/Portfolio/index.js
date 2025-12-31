@@ -19,6 +19,7 @@ export const Portfolio = () => {
 
   const order = [
     "movies-browser-group-project",
+    "personal-homepage",
     "To-do-list-React",
     "Currency-calculator-react",
     "To-do-list",
@@ -55,7 +56,6 @@ export const Portfolio = () => {
     Promise.all([fetchMyRepos, fetchCollaborations])
       .then(([myReposData, collabReposData]) => {
         if (isMounted) {
-
           const myReposWithDesc = myReposData.map((repo) => ({
             ...repo,
             description: repo.description || "",
