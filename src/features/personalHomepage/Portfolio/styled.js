@@ -7,6 +7,11 @@ export const PortfolioWrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 20px;
+  padding-top: 72px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    padding-top: 48px;
+  }
 `;
 
 export const GitHubIcon = styled(GithubIcon)`
